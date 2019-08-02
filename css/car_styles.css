@@ -14,7 +14,7 @@ fieldset {
 }
 
 legend {
-    width: 40%;
+    width: 80%;
 }
 
 a {
@@ -46,19 +46,11 @@ a {
     color: #00dd00;
 }
 
-#discMsg, #roomMsg1, #roomMsg2, #roomMsg3 {
+#allCosts {
     display: none;
+}
+
+#ageMsg {
     color: #ff0000;
-}
-
-#roomTypeField {
-    width: 175px;
-}
-
-#adultField, #childrenField {
-    width: 75px;
-}
-
-#stayInfo {
     display: none;
 }

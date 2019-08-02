@@ -8,10 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/car_styles.css" />
     <link rel="shortcut icon" type="image/png" href="img/travel_icon.png"/>
     <title>ACME Travels</title>
   </head>
@@ -23,7 +20,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
         
-      <!-- Links to calculators -->
+      <!-- nav bar links -->
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
@@ -41,26 +38,27 @@
     
     <div class="jumbotron landing-bg">
       <div class="container text-left">
-        <h1 class="display-4 headTitle">Acme <br/>Travel</h1>
+        <h1 class="display-4 headTitle obli">Our <br/>Little Town</h1>
       </div>
     </div>
     
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb mx-4">
         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Home</li>
+        <li class="breadcrumb-item active" aria-current="page">Car Rental</li>
       </ol>
     </nav>
 
     <main class="m-4">
+      <!-- Car rental calculator with user input -->
       <form class="row" action="#" method="GET">  
-        <fieldset class="col-4 offset-4">
-          <legend>ACME Car Rental</legend>
+        <fieldset class="col-6 offset-3 border-success">
+          <legend class="text-center display-4 green obli">Our Little Car Rental</legend>
           
           <!-- Car Selector -->
           <label for="carTypeField">Choose car type</label>
           <select class="custom-select mb-2" id="carTypeField">
-            <option selected>Choose...</option>
+            <option selected value="0">Choose...</option>
             <option value="1">Economy</option>
             <option value="2">Compact</option>
             <option value="3">Intermediate</option>
@@ -88,10 +86,10 @@
 
           <div class="my-3">
             <!-- Calculate button-->
-            <input type="button" class="btn btn-outline-success" id="calculateBtn" value="Estimate Total Cost" />
+            <input type="button" class="btn btn-success" id="calculateBtn" value="Estimate Total Cost" />
   
             <!-- Reset button-->
-            <button type="reset" class="btn btn-outline-secondary" id="resetBtn">Reset</button>
+            <button type="reset" class="btn btn-secondary" id="resetBtn">Reset</button>
           </div>
 
           <!-- Output calculations from selections -->
@@ -101,7 +99,7 @@
             <p class="my-3">Under 25 surcharge: <input type="text" id="underTotal" disabled/></p>
             <hr>
             <p class="my-3">Total due: <input type="text" id="totalDue" disabled/></p>
-            <p class="my-3">Please return car on: <input type="text" id="returnDue" disabled/></p>
+            <p class="my-3">Please return car on before 3pm: <input type="text" id="returnDue" disabled/></p>
           </div>
         </fieldset>
       </form>
@@ -110,7 +108,7 @@
     <footer class="container">
       <hr>
       <p>&copy;Hartcode Academy 2019</p>
-    </footer>  
+    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -118,6 +116,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
-    <script src="scripts/scripts.js"></script>
+    <script src="scripts/car_scripts.js"></script>
   </body>
 </html>
