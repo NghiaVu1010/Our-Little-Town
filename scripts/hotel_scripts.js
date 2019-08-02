@@ -90,6 +90,31 @@ function getDiscount(subtotal, code) {
     return subtotal;
 }
 
+//reformat check in date by adding 1 day
+function returnCheckInDate(startDate) {
+    startDate = Date.parse(startDate);
+    startDate = new Date(startDate + (1000 * 60 * 60 * 24));
+
+    return startDate.toLocaleDateString();
+}
+
+//calculate the check out date
+function returnCheckOutDate(startDate, numDays) {
+    //get the check in date and parse it
+    let d = Date.parse(startDate);
+    let msec = 1000*60*60*24;
+
+    //get the start date + amount of nights
+    let duration = (Number(numDays) + 1) * msec;
+    let endDate = new Date(d + duration);
+
+    return endDate.toLocaleDateString();
+}
+
+function customDateFormat(date) {
+
+}
+
 window.onload = function() 
 {
     //array of rooms and prices
@@ -116,7 +141,7 @@ window.onload = function()
 
     //grab output fields
     let checkIn = document.getElementById("checkIn");
-    //let checkOut = document.getElementById("checkOut");
+    let checkOut = document.getElementById("checkOut");
     let subTotal = document.getElementById("subTotal");
     let discTotal = document.getElementById("discTotal");
     let taxTotal = document.getElementById("taxTotal");
@@ -168,6 +193,12 @@ window.onload = function()
             return roomMsg2.style.display = 'block';
         }
 
+        //customized the format
+        let checkInDate = returnCheckInDate(checkInField.value);
+
+        //get checkout date
+        let checkOutDate = returnCheckOutDate(checkInField.value, nightsField.value);
+
         //calculate the value and return room cost
         let roomCost = getRoomCost(roomTypeField.value, checkInField.value, nightsField.value, roomInfo);
 
@@ -177,8 +208,11 @@ window.onload = function()
         //calculate the discount amount
         let discountCost = getDiscount(roomCost, discOption.value);
 
+
+
         //populate the stay info
-        checkIn.value = checkInField.value;
+        checkIn.value = checkInDate;
+        checkOut.value = checkOutDate;
         subTotal.value = (roomCost + breakfastCost).toFixed(2);
         discTotal.value = discountCost.toFixed(2);
         let taxCost = (roomCost + breakfastCost - discountCost) * .12;
