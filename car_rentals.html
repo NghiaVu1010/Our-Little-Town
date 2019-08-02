@@ -52,30 +52,59 @@
       </ol>
     </nav>
 
-    <main>
-      <div class="container">
-        <!-- Links to other pages -->
-        <div class="row">
-          <div class="col-lg-4 text-center">
-            <img class="rounded-circle" src="img/hotel.jpg" alt="hotel icon">
-            <h2>Hotels</h2>
-            <p>Interested in finding out your mortgage payments? Click down below to find out!</p>
-            <p><a class="btn btn-success" href="hotel_rooms.html" role="button">Rooms &raquo;</a></p>
+    <main class="m-4">
+      <form class="row" action="#" method="GET">  
+        <fieldset class="col-4 offset-4">
+          <legend>ACME Car Rental</legend>
+          
+          <!-- Car Selector -->
+          <label for="carTypeField">Choose car type</label>
+          <select class="custom-select mb-2" id="carTypeField">
+            <option selected>Choose...</option>
+            <option value="1">Economy</option>
+            <option value="2">Compact</option>
+            <option value="3">Intermediate</option>
+            <option value="4">Full Size</option>
+          </select>
+
+          <!-- Fields for Car Rental -->
+          <label for="pickUpField">Pick up date: <input type="date" id="pickUpField" name="pickUpField" required="required" min="2019-08-01" /></label>
+          <label for="daysField">Number of days: <input type="number" id="daysField" name="daysField" required="required" min="1" /></label>
+
+          <p>Options: </p>
+          <input type="checkbox" id="tollTagBox" name="tollTagBox" value="tolltagbox">
+          <label for="tollTagBox">Electronic Toll Tag ($3.95/day)</label><br/>
+
+          <input type="checkbox" id="gpsBox" name="gpsBox" value="gpsbox">
+          <label for="gpsBox">GPS ($2.95/day)</label><br/>
+
+          <input type="checkbox" id="roadsideBox" name="roadsideBox" value="roadsidebox">
+          <label for="roadsideBox">Roadside Assistance ($2.95/day)</label><br/>
+
+          <p>Under 25?</p>
+          <input type="radio" id="overAge" name="age" value="no"> No
+          <input type="radio" id="underAge" name="age" value="yes"> Yes
+          <small id="ageMsg">Please select an option</small>
+
+          <div class="my-3">
+            <!-- Calculate button-->
+            <input type="button" class="btn btn-outline-success" id="calculateBtn" value="Estimate Total Cost" />
+  
+            <!-- Reset button-->
+            <button type="reset" class="btn btn-outline-secondary" id="resetBtn">Reset</button>
           </div>
-          <div class="col-lg-4 text-center">
-            <img class="rounded-circle" src="img/car.png" alt="car icon">
-            <h2>Car Rentals</h2>
-            <p>Wondering how much you're actually getting? Check whats your annuity payment below!</p>
-            <p><a class="btn btn-success" href="car_rentals.html" role="button">Rent &raquo;</a></p>
+
+          <!-- Output calculations from selections -->
+          <div id="allCosts">
+            <p class="my-3">Car Rental: <input type="text" id="rentalTotal" disabled/></p>
+            <p class="my-3">Options: <input type="text" id="optionsTotal" disabled/></p>
+            <p class="my-3">Under 25 surcharge: <input type="text" id="underTotal" disabled/></p>
+            <hr>
+            <p class="my-3">Total due: <input type="text" id="totalDue" disabled/></p>
+            <p class="my-3">Please return car on: <input type="text" id="returnDue" disabled/></p>
           </div>
-          <div class="col-lg-4 text-center">
-            <img class="rounded-circle" src="img/tour.png" alt="tour icon">
-            <h2>Awesome Tours</h2>
-            <p>Wondering how much you're actually getting? Check whats your annuity payment below!</p>
-            <p><a class="btn btn-success" href="tours.html" role="button">Search &raquo;</a></p>
-          </div>
-        </div>
-      </div>
+        </fieldset>
+      </form>
     </main>
 
     <footer class="container">

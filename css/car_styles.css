@@ -1,0 +1,64 @@
+body {
+    background-color: #C0C0C0;
+}
+
+fieldset { 
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 0.35em;
+    padding-bottom: 0.625em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: 4px inset;
+}
+
+legend {
+    width: 40%;
+}
+
+a {
+    color: #00dd00;
+}
+
+.obli {
+    font-style: oblique;
+}
+
+.landing-bg {
+    background-image: url("../img/travelBanner.png");
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.headTitle {
+    font-weight: bold;
+}
+
+.green {
+    color: #00dd00;
+}
+
+#discMsg, #roomMsg1, #roomMsg2, #roomMsg3 {
+    display: none;
+    color: #ff0000;
+}
+
+#roomTypeField {
+    width: 175px;
+}
+
+#adultField, #childrenField {
+    width: 75px;
+}
+
+#stayInfo {
+    display: none;
+}
