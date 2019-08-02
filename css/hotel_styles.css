@@ -26,7 +26,7 @@ a {
 }
 
 .landing-bg {
-    background-image: url("../img/travelBanner.png");
+    background-image: url("../images/travelBanner.png");
     background-size: cover;
     background-position: center;
     height: 400px;
