@@ -8,10 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/hotel_styles.css" />
     <link rel="shortcut icon" type="image/png" href="img/travel_icon.png"/>
     <title>ACME Travels</title>
   </head>
@@ -27,7 +24,7 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Hotel</a>
+            <a class="nav-link active" href="#">Hotel</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="car_rentals.html">Car Rental</a>
@@ -39,72 +36,119 @@
       </div>
     </nav>
     
-    <div class="jumbotron landing-bg">
+    <header class="jumbotron landing-bg">
       <div class="container text-left">
-        <h1 class="display-4 headTitle">Acme <br/>Travel</h1>
+        <h1 class="display-4 headTitle obli">Our <br/>Little Town</h1>
       </div>
-    </div>
+    </header>
     
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb mx-4">
-        <li class="breadcrumb-item active" aria-current="page">Home</li>
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Hotel</li>
       </ol>
     </nav>
 
     <main class="m-4">
-      <form class="row" action="#" method="GET">  
-        <fieldset class="col-4 offset-4">
-          <legend>Our Little Hotel</legend>
-
-          <!-- Fields for Car Rental -->
-          <label for="checkInField">Pick up date: <input type="date" id="checkInField" name="checkInField" required="required" min="2019-08-02" /></label>
-          <label for="nightsField">Number of nights: <input type="number" id="nightsField" name="nightsField" required="required" min="1" max="28" /></label>
-
-          <p>Options: </p>
-          <input type="checkbox" id="tollTagBox" name="tollTagBox" value="tolltagbox">
-          <label for="tollTagBox">Electronic Toll Tag ($3.95/day)</label><br/>
-
-          <input type="checkbox" id="gpsBox" name="gpsBox" value="gpsbox">
-          <label for="gpsBox">GPS ($2.95/day)</label><br/>
-
-          <input type="checkbox" id="roadsideBox" name="roadsideBox" value="roadsidebox">
-          <label for="roadsideBox">Roadside Assistance ($2.95/day)</label><br/>
-
-          <p>Under 25?</p>
-          <input type="radio" id="overAge" name="age" value="no"> No
-          <input type="radio" id="underAge" name="age" value="yes"> Yes
-          <small id="ageMsg">Please select an option</small>
-
-          <div class="my-3">
-            <!-- Calculate button-->
-            <input type="button" class="btn btn-outline-success" id="calculateBtn" value="Estimate Total Cost" />
+      <!-- Hotel Stay Calculator with user input -->
+      <form action="#" method="GET">  
+        <fieldset class="container border-success">
+          <legend class="text-center display-4 green obli">Our Little Hotels</legend>
+          
+          <div class="row">
+            <!-- Check-in date and nights -->
+            <div class="col-md-6">
+              <label for="checkInField">Check in date: <input type="date" id="checkInField" name="checkInField" required="required" min="2019-08-02" /></label>
+              <label for="nightsField">Number of nights: <input type="number" id="nightsField" name="nightsField" required="required" min="1" max="28" /></label>
   
-            <!-- Reset button-->
-            <button type="reset" class="btn btn-outline-secondary" id="resetBtn">Reset</button>
+              <!-- Type of room -->
+              <div>
+                <label for="roomTypeField">Choose room type: </label>
+                <select class="custom-select mb-2" id="roomTypeField">
+                  <option selected value="0">Choose...</option>
+                  <option value="Queen">Queen</option>
+                  <option value="King">King</option>
+                  <option value="King Suite">King Suite</option>
+                  <option value="2-Bedroom Suite">2-Bedroom Suite</option>
+                </select>
+                <small id="roomMsg1">Please select an option.</small>
+                <small id="roomMsg2">Please consider a bigger room.</small>
+                <small id="roomMsg3">There is no room to fit that amount of people.</small>
+              </div>
+  
+              <!-- Include breakfast -->
+              <label for="breakfastBox"><input type="checkbox" id="breakfastBox" name="breakfastBox" value="breakfastbox">Include breakfast? <small>($6.96/adult, $3.95/child)</small></label>
+            </div>
+  
+            <!-- Number of adults (At least 1) -->
+            <div class="col-md-6">
+              <label for="adultField">Adults: </label>
+              <select class="custom-select mb-2" id="adultField">
+                <option selected value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+    
+              <!-- Number of children -->
+              <label for="childrenField">Children: </label>
+              <select class="custom-select mb-2" id="childrenField">
+                <option selected value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+
+              <!-- Any discounts (must select) -->
+              <div>
+                <span>Discounts: </span>
+                <input type="radio" id="noDisc" name="discount" value="none">
+                <label for="noDisc">None</label>
+                <input type="radio" id="aaaDisc" name="discount" value="aaa">
+                <label for="aaaDisc">AAA</label>
+                <input type="radio" id="seniorDisc" name="discount" value="senior">
+                <label for="seniorDisc">Senior</label>
+                <input type="radio" id="miliDisc" name="discount" value="military">
+                <label for="miliDisc">Military</label>
+                <small id="discMsg">Please select an option.</small>
+              </div>
+            </div>
           </div>
 
-          <!-- Output calculations from selections -->
-          <div id="allCosts">
-            <p class="my-3">Car Rental: <input type="text" id="rentalTotal" disabled/></p>
-            <p class="my-3">Options: <input type="text" id="optionsTotal" disabled/></p>
-            <p class="my-3">Under 25 surcharge: <input type="text" id="underTotal" disabled/></p>
-            <hr>
-            <p class="my-3">Total due: <input type="text" id="totalDue" disabled/></p>
-            <p class="my-3">Please return car on: <input type="text" id="returnDue" disabled/></p>
+          <!-- Calculate the entire cost -->
+          <div class="text-center">
+            <input type="button" class="btn btn-success" id="calculateBtn" value="Estimate Stay Cost" />
+            <button type="reset" class="btn btn-secondary" id="resetBtn">Reset</button>
+
+            <!-- Cost of everything (hidden until clicked) -->
+            <div id="stayInfo">
+              <p class="my-2">Check-in Date: <input type="text" id="checkIn" disabled/></p>
+              <p class="my-2">Check-out Date: <input type="text" id="checkOut" disabled/></p>
+              <p class="my-2">Subtotal: <input type="text" id="subTotal" disabled/></p>
+              <p class="my-2">Discounts: <input type="text" id="discTotal" disabled/></p>
+              <p class="my-2">Tax: <input type="text" id="taxTotal" disabled/></p>
+              <hr>
+              <p class="my-2">Total Cost: <input type="text" id="totalDue" disabled/></p>
+            </div>
           </div>
         </fieldset>
       </form>
+
+      <!-- INCLUDE DESCRIPTIONS HERE AFTER -->
     </main>
 
     <footer class="container">
       <hr>
       <p>&copy;Hartcode Academy 2019</p>
-    </footer>  
+    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <script src="scripts/hotel_scripts.js"></script>
   </body>
 </html>
