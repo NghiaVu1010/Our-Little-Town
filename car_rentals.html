@@ -10,7 +10,7 @@
     
     <link rel="stylesheet" type="text/css" href="css/car_styles.css" />
     <link rel="shortcut icon" type="image/png" href="images/travel_icon.png"/>
-    <title>ACME Travels</title>
+    <title>Our Little Town</title>
   </head>
 
   <body>
@@ -53,7 +53,7 @@
       <div class="container">
         <div class="row">
           <!-- Car rental calculator with user input -->
-          <form class="col-5" action="#" method="GET">  
+          <form class="col-lg-5" action="#" method="GET">  
             <fieldset class="border-success">
               <legend class="text-center display-4 green obli">Our Little Car Rental</legend>
               
@@ -68,6 +68,7 @@
               </select>
     
               <!-- Fields for Car Rental -->
+              <!-- DATE FIELD WILL THROW WARNING, NOT SUPPORTED IN ALL BROWSERS -->
               <label for="pickUpField">Pick up date: <input type="date" id="pickUpField" name="pickUpField" required="required" min="2019-08-01" /></label>
               <label for="daysField">Number of days: <input type="number" id="daysField" name="daysField" required="required" min="1" /></label>
     
@@ -106,7 +107,7 @@
             </fieldset>
           </form>
 
-          <div class="col-5">
+          <div class="col-lg-5">
             <img id="carImg" src="images/carScene.jpg" alt="car image" />
           </div>
         </div>

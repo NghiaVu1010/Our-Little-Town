@@ -111,10 +111,6 @@ function returnCheckOutDate(startDate, numDays) {
     return endDate.toLocaleDateString();
 }
 
-function customDateFormat(date) {
-
-}
-
 window.onload = function() 
 {
     //array of rooms and prices
@@ -123,7 +119,7 @@ window.onload = function()
         {room: "King", max: 2, inPrice: 250.00, outPrice: 150.00},
         {room: "King Suite", max: 4, inPrice: 310.00, outPrice: 190.00},
         {room: "2-Bedroom Suite", max: 6, inPrice: 350.00, outPrice: 210.00}
-    ]
+    ];
 
     //grab room fields
     const checkInField = document.getElementById("checkInField");
