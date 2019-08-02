@@ -50,59 +50,67 @@
     </nav>
 
     <main class="m-4">
-      <!-- Car rental calculator with user input -->
-      <form class="row" action="#" method="GET">  
-        <fieldset class="col-6 offset-3 border-success">
-          <legend class="text-center display-4 green obli">Our Little Car Rental</legend>
-          
-          <!-- Car Selector -->
-          <label for="carTypeField">Choose car type</label>
-          <select class="custom-select mb-2" id="carTypeField">
-            <option selected value="0">Choose...</option>
-            <option value="1">Economy</option>
-            <option value="2">Compact</option>
-            <option value="3">Intermediate</option>
-            <option value="4">Full Size</option>
-          </select>
+      <div class="container">
+        <div class="row">
+          <!-- Car rental calculator with user input -->
+          <form class="col-5" action="#" method="GET">  
+            <fieldset class="border-success">
+              <legend class="text-center display-4 green obli">Our Little Car Rental</legend>
+              
+              <!-- Car Selector -->
+              <label for="carTypeField">Choose car type</label>
+              <select class="custom-select mb-2" id="carTypeField">
+                <option selected value="0">Choose...</option>
+                <option value="1">Economy</option>
+                <option value="2">Compact</option>
+                <option value="3">Intermediate</option>
+                <option value="4">Full Size</option>
+              </select>
+    
+              <!-- Fields for Car Rental -->
+              <label for="pickUpField">Pick up date: <input type="date" id="pickUpField" name="pickUpField" required="required" min="2019-08-01" /></label>
+              <label for="daysField">Number of days: <input type="number" id="daysField" name="daysField" required="required" min="1" /></label>
+    
+              <p>Options: </p>
+              <input type="checkbox" id="tollTagBox" name="tollTagBox" value="tolltagbox">
+              <label for="tollTagBox">Electronic Toll Tag ($3.95/day)</label><br/>
+    
+              <input type="checkbox" id="gpsBox" name="gpsBox" value="gpsbox">
+              <label for="gpsBox">GPS ($2.95/day)</label><br/>
+    
+              <input type="checkbox" id="roadsideBox" name="roadsideBox" value="roadsidebox">
+              <label for="roadsideBox">Roadside Assistance ($2.95/day)</label><br/>
+    
+              <p>Under 25?</p>
+              <input type="radio" id="overAge" name="age" value="no"> No
+              <input type="radio" id="underAge" name="age" value="yes"> Yes
+              <small id="ageMsg">Please select an option</small>
+    
+              <div class="my-3">
+                <!-- Calculate button-->
+                <input type="button" class="btn btn-success" id="calculateBtn" value="Estimate Total Cost" />
+      
+                <!-- Reset button-->
+                <button type="reset" class="btn btn-secondary" id="resetBtn">Reset</button>
+              </div>
+    
+              <!-- Output calculations from selections -->
+              <div id="allCosts">
+                <p class="my-3">Car Rental: <input type="text" id="rentalTotal" disabled/></p>
+                <p class="my-3">Options: <input type="text" id="optionsTotal" disabled/></p>
+                <p class="my-3">Under 25 surcharge: <input type="text" id="underTotal" disabled/></p>
+                <hr>
+                <p class="my-3">Total due: <input type="text" id="totalDue" disabled/></p>
+                <p class="my-3">Please return car on before 3pm: <input type="text" id="returnDue" disabled/></p>
+              </div>
+            </fieldset>
+          </form>
 
-          <!-- Fields for Car Rental -->
-          <label for="pickUpField">Pick up date: <input type="date" id="pickUpField" name="pickUpField" required="required" min="2019-08-01" /></label>
-          <label for="daysField">Number of days: <input type="number" id="daysField" name="daysField" required="required" min="1" /></label>
-
-          <p>Options: </p>
-          <input type="checkbox" id="tollTagBox" name="tollTagBox" value="tolltagbox">
-          <label for="tollTagBox">Electronic Toll Tag ($3.95/day)</label><br/>
-
-          <input type="checkbox" id="gpsBox" name="gpsBox" value="gpsbox">
-          <label for="gpsBox">GPS ($2.95/day)</label><br/>
-
-          <input type="checkbox" id="roadsideBox" name="roadsideBox" value="roadsidebox">
-          <label for="roadsideBox">Roadside Assistance ($2.95/day)</label><br/>
-
-          <p>Under 25?</p>
-          <input type="radio" id="overAge" name="age" value="no"> No
-          <input type="radio" id="underAge" name="age" value="yes"> Yes
-          <small id="ageMsg">Please select an option</small>
-
-          <div class="my-3">
-            <!-- Calculate button-->
-            <input type="button" class="btn btn-success" id="calculateBtn" value="Estimate Total Cost" />
-  
-            <!-- Reset button-->
-            <button type="reset" class="btn btn-secondary" id="resetBtn">Reset</button>
+          <div class="col-5">
+            <img id="carImg" src="images/carScene.jpg" alt="car image" />
           </div>
-
-          <!-- Output calculations from selections -->
-          <div id="allCosts">
-            <p class="my-3">Car Rental: <input type="text" id="rentalTotal" disabled/></p>
-            <p class="my-3">Options: <input type="text" id="optionsTotal" disabled/></p>
-            <p class="my-3">Under 25 surcharge: <input type="text" id="underTotal" disabled/></p>
-            <hr>
-            <p class="my-3">Total due: <input type="text" id="totalDue" disabled/></p>
-            <p class="my-3">Please return car on before 3pm: <input type="text" id="returnDue" disabled/></p>
-          </div>
-        </fieldset>
-      </form>
+        </div>
+      </div>
     </main>
 
     <footer class="container">
