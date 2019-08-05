@@ -1,7 +1,3 @@
-body {
-    background-color: #C0C0C0;
-}
-
 fieldset { 
     display: block;
     margin-left: 2px;
@@ -21,29 +17,10 @@ a {
     color: #00dd00;
 }
 
-.obli {
-    font-style: oblique;
-}
-
-.landing-bg {
-    background-image: url("../images/travelBanner.png");
-    background-size: cover;
-    background-position: center;
-    height: 400px;
-}
-
 .center {
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
-
-.headTitle {
-    font-weight: bold;
-}
-
-.green {
-    color: #00dd00;
 }
 
 #errorMsg1, #errorMsg2 {

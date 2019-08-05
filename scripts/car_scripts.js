@@ -36,9 +36,9 @@ function calculateOptions(numDays, toll, gps, road) {
     let sum = 0;
 
     //add options selected and return cost
-    if(toll){sum += 3.95 * numDays};
-    if(gps){sum += 2.95 * numDays};
-    if(road){sum += 3.95 * numDays};
+    if(toll)sum += 3.95 * numDays
+    if(gps)sum += 2.95 * numDays
+    if(road)sum += 3.95 * numDays
 
     return sum;
 }
@@ -51,6 +51,7 @@ function calculateAgeSurcharge(numDays, carType, age) {
         return calculateRental(numDays, carType) * .30;
     }
     else {
+        ageMsg.style.display = 'none';
         return 0;
     }
 }
@@ -67,6 +68,16 @@ function returnDate(numDays, startDate) {
     return endDate.toDateString();
 }
 
+//disables previous day from today in drop downs
+function disablePreviousDays() {
+    const currDate = new Date();
+    const currMonth = currDate.getMonth() > 9 ? currDate.getMonth() + 1 : '0' + (currDate.getMonth() + 1);
+    const currDay = currDate.getDate() > 9 ? currDate.getDate() : '0' + currDate.getDate();
+    
+    const dateStr = currDate.getFullYear() + '-' + currMonth + '-' + currDay;
+    return dateStr;
+}
+
 window.onload = function() 
 {
     //grab each of the values and assigns value
@@ -81,16 +92,37 @@ window.onload = function()
     let rentalTotal = document.getElementById("rentalTotal");
     let optionsTotal = document.getElementById("optionsTotal");
     let underTotal = document.getElementById("underTotal");
+    
+    let carMsg = document.getElementById("carMsg");
+    let dayMsg = document.getElementById("dayMsg");
     let ageMsg = document.getElementById("ageMsg");
 
     let allCosts = document.getElementById("allCosts");
     let totalDue = document.getElementById("totalDue");
     let returnDue = document.getElementById("returnDue");
 
-    const calculateBtn = document.getElementById("calculateBtn");
+    pickUpField.valueAsDate = new Date();
+    pickUpField.setAttribute('min', disablePreviousDays());
 
+    const calculateBtn = document.getElementById("calculateBtn");
     calculateBtn.onclick = function () {    
         let ageOption = document.querySelector("input[name='age']:checked");
+
+        //check to see if they selected a car
+        if(carType.value == 0) {
+            return carMsg.style.display = 'block';
+        }
+        else {
+            carMsg.style.display = 'none';
+        }
+
+        //check to see if they entered incorrect amount of nights
+        if(days.value <= 0) {
+            return dayMsg.style.display = 'block';
+        }
+        else {
+            dayMsg.style.display = 'none';
+        }
 
         //verifies if they didn't select an option
         if (ageOption == undefined) {
@@ -119,6 +151,8 @@ window.onload = function()
 
     // Bind Click Event Handler to Reset Buttom
     resetBtn.onclick = function() {
+        carMsg.style.display = 'none';
+        dayMsg.style.display = 'none';
         ageMsg.style.display = 'none';
         allCosts.style.display = 'none';
 
