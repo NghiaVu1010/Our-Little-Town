@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
+    <link rel="stylesheet" type="text/css" href="css/site.css" />
     <link rel="stylesheet" type="text/css" href="css/car_styles.css" />
     <link rel="shortcut icon" type="image/png" href="images/travel_icon.png"/>
     <title>Our Little Town</title>
@@ -66,12 +67,14 @@
                 <option value="3">Intermediate</option>
                 <option value="4">Full Size</option>
               </select>
+              <small id="carMsg">Please select a car type.</small>
     
               <!-- Fields for Car Rental -->
               <!-- DATE FIELD WILL THROW WARNING, NOT SUPPORTED IN ALL BROWSERS -->
-              <label for="pickUpField">Pick up date: <input type="date" id="pickUpField" name="pickUpField" required="required" min="2019-08-01" /></label>
+              <label for="pickUpField">Pick up date: <input type="date" id="pickUpField" name="pickUpField" required="required" /></label>
               <label for="daysField">Number of days: <input type="number" id="daysField" name="daysField" required="required" min="1" /></label>
-    
+              <small id="dayMsg">Please enter a valid number of days.</small>
+
               <p>Options: </p>
               <input type="checkbox" id="tollTagBox" name="tollTagBox" value="tolltagbox">
               <label for="tollTagBox">Electronic Toll Tag ($3.95/day)</label><br/>
@@ -83,8 +86,8 @@
               <label for="roadsideBox">Roadside Assistance ($2.95/day)</label><br/>
     
               <p>Under 25?</p>
-              <input type="radio" id="overAge" name="age" value="no"> No
-              <input type="radio" id="underAge" name="age" value="yes"> Yes
+              <input type="radio" id="overAge" name="age" value="no"><label for="overAge">No</label>
+              <input type="radio" id="underAge" name="age" value="yes"><label for="underAge">Yes</label>
               <small id="ageMsg">Please select an option</small>
     
               <div class="my-3">

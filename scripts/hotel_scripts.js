@@ -111,6 +111,16 @@ function returnCheckOutDate(startDate, numDays) {
     return endDate.toLocaleDateString();
 }
 
+//disables previous day from today in drop downs
+function disablePreviousDays() {
+    const currDate = new Date();
+    const currMonth = currDate.getMonth() > 9 ? currDate.getMonth() + 1 : '0' + (currDate.getMonth() + 1);
+    const currDay = currDate.getDate() > 9 ? currDate.getDate() : '0' + currDate.getDate();
+    
+    const dateStr = currDate.getFullYear() + '-' + currMonth + '-' + currDay;
+    return dateStr;
+}
+
 window.onload = function() 
 {
     //array of rooms and prices
@@ -133,8 +143,8 @@ window.onload = function()
     let roomMsg1 = document.getElementById("roomMsg1");
     let roomMsg2 = document.getElementById("roomMsg2");
     let roomMsg3 = document.getElementById("roomMsg3");
-    let discMsg = document.getElementById("discMsg");
-
+    let nightMsg = document.getElementById("nightMsg");
+    
     //grab output fields
     let checkIn = document.getElementById("checkIn");
     let checkOut = document.getElementById("checkOut");
@@ -142,19 +152,24 @@ window.onload = function()
     let discTotal = document.getElementById("discTotal");
     let taxTotal = document.getElementById("taxTotal");
     let totalDue = document.getElementById("totalDue");
+    
+    checkInField.valueAsDate = new Date();
+    checkInField.setAttribute('min', disablePreviousDays());
 
     //do calculations when button is clicked
     const calculateBtn = document.getElementById("calculateBtn");
     calculateBtn.onclick = function() {
         //required selection for discount
         let discOption = document.querySelector("input[name='discount']:checked");
+        
+        console.log(typeof checkInField.value);
 
-        //check to see if they did not select a room
-        if(roomTypeField.value == '0') {
-            return roomMsg1.style.display = 'block';
+        //check to see if they entered incorrect amount of nights
+        if(nightsField.value <= 0) {
+            return nightMsg.style.display = 'block';
         }
         else {
-            roomMsg1.style.display = 'none';
+            nightMsg.style.display = 'none';
         }
 
         //check to see if the amount of people is greater than 6, display error msg3
@@ -167,12 +182,12 @@ window.onload = function()
             roomMsg3.style.display = 'none';
         }
 
-        //check to see if they did not select a discount code
-        if (discOption == undefined) {
-            return discMsg.style.display = 'block';
+        //check to see if they did not select a room
+        if(roomTypeField.value == '0') {
+            return roomMsg1.style.display = 'block';
         }
         else {
-            discMsg.style.display = 'none';
+            roomMsg1.style.display = 'none';
         }
 
         //set results to fitCheck
@@ -204,8 +219,6 @@ window.onload = function()
         //calculate the discount amount
         let discountCost = getDiscount(roomCost, discOption.value);
 
-
-
         //populate the stay info
         checkIn.value = checkInDate;
         checkOut.value = checkOutDate;
@@ -222,7 +235,7 @@ window.onload = function()
         roomMsg1.style.display = 'none';
         roomMsg2.style.display = 'none';
         roomMsg3.style.display = 'none';
-        discMsg.style.display = 'none';
+        nightMsg.style.display = 'none';
         stayInfo.style.display = 'none';
 
         // Put cursor in First Name field

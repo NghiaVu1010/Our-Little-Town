@@ -24,10 +24,11 @@ body {
 }
 
 .green {
-    color: #00ff88;
+    color: #00dd00;
 }
 
-#incorrectNum {
-    display: none;
-    color: #ff0000;
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

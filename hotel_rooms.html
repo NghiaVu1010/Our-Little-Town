@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
+    <link rel="stylesheet" type="text/css" href="css/site.css" />
     <link rel="stylesheet" type="text/css" href="css/hotel_styles.css" />
     <link rel="shortcut icon" type="image/png" href="images/travel_icon.png"/>
     <title>Our Little Town</title>
@@ -59,9 +60,10 @@
             <!-- Check-in date and nights -->
             <div class="col-md-6">
               <!-- DATE FIELD WILL THROW WARNING, NOT SUPPORTED IN ALL BROWSERS -->
-              <label for="checkInField">Check in date: <input type="date" id="checkInField" name="checkInField" required="required" min="2019-08-02" /></label>
+              <label for="checkInField">Check in date: <input type="date" id="checkInField" name="checkInField" required="required" /></label>
               <label for="nightsField">Number of nights: <input type="number" id="nightsField" name="nightsField" required="required" min="1" max="28" /></label>
-  
+              <small id="nightMsg">Please enter a valid number of nights.</small>
+
               <!-- Type of room -->
               <div>
                 <label for="roomTypeField">Choose room type: </label>
@@ -104,7 +106,7 @@
               <!-- Any discounts (must select) -->
               <div>
                 <span>Discounts: </span>
-                <input type="radio" id="noDisc" name="discount" value="none">
+                <input type="radio" id="noDisc" name="discount" value="none" checked>
                 <label for="noDisc">None</label>
                 <input type="radio" id="aaaDisc" name="discount" value="aaa">
                 <label for="aaaDisc">AAA</label>
@@ -112,7 +114,6 @@
                 <label for="seniorDisc">Senior</label>
                 <input type="radio" id="miliDisc" name="discount" value="military">
                 <label for="miliDisc">Military</label>
-                <small id="discMsg">Please select an option.</small>
               </div>
             </div>
           </div>
