@@ -61,7 +61,7 @@ window.onload = function()
 
     const searchBtn = document.getElementById("searchBtn");
 
-    searchBtn.onclick = function () {
+    searchBtn.onclick = function() {
 
         let category = categoryField.value;
         let day = dayField.value;
